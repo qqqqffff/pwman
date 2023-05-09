@@ -1,32 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import './Login.css';
-// import {login} from '../../server/server.js'
+import Header from "../header/Header";
 
 function Login() {
-  return (
-    <div className="Login">
-      <div >
-          <LoginButton/>
-      </div>
-    </div>
-  );
-}
+    const [form, setForm] = useState({
+        email: "",
+        password: ""
+    });
+    const navigate = useNavigate();
 
-function LoginButton(){
-    function attemptLogin(){
-        // const loginResponse: number = login("someUser", "somePassword");
-        // if(loginResponse === 1){
-        //     //do something
-        // }
-        // else if(loginResponse === 2){
-        //     //do something else
-        // }
+    function updateForm(value: { email: string; password: string; }) {
+        return setForm((prev) => {
+            return { ...prev, ...value };
+        })
     }
-    return(
-        <button onClick={attemptLogin}>
 
-        </button>
-    )
+    async function onLogin(e: { preventDefault: () => void; }) {
+        e.preventDefault();
+
+        const login = { ...form };
+
+        await fetch("http://localhost:5050/users", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(login)
+        })
+        .catch(() => {
+            window.alert("invalid login");
+            return;
+        });
+
+        setForm({ email: "", password: ""});
+        navigate("/home");
+    }
+
+
+    return (
+        <div className="Login">
+            <Header/>
+            <div>
+            </div>
+        </div>
+    );
 }
 
 export default Login;

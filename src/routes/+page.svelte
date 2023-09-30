@@ -1,4 +1,4 @@
 <nav>
-    <a href='/'>Home</a>
+    <a href='/' class='text-3xl'>Home</a>
     
 </nav>

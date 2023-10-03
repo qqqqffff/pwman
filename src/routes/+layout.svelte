@@ -8,7 +8,7 @@
     onMount(() => {
         const { auth } = initFirebase();
         onAuthStateChanged(auth, (user) => {
-            authStore.set
+            authStore.set(user)
         }); 
     })
 </script>

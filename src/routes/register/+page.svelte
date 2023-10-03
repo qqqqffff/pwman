@@ -2,7 +2,7 @@
     import { applyAction, deserialize } from "$app/forms";
     import { goto, invalidateAll } from "$app/navigation";
     import type { ActionResult } from "@sveltejs/kit";
-    import { getAuth, createUserWithEmailAndPassword, type User, type UserCredential } from "firebase/auth";
+    import { getAuth, createUserWithEmailAndPassword, type UserCredential } from "firebase/auth";
     import { onMount } from "svelte";
     import type { ActionData } from './$types';
     import { auth } from "../../stores/auth";
@@ -20,6 +20,7 @@
     });
 
     const register = async(email: string | undefined, password: string | undefined): Promise<ActionResult<{credential: UserCredential}, Record<string, string>>> => {
+        console.log(email, ' ', password);
         if(!email || !password)
             return {
                 type: 'failure',
@@ -33,6 +34,12 @@
 
         try{
             const credential = await createUserWithEmailAndPassword(auth, email, password);
+
+            // testing required
+            // sendSignInLinkToEmail(auth, email, actionCodeSettings).then(() => {
+            //     window.localStorage.setItem('emailForSignIn', email);
+            // })
+
             return {
                 type: 'success',
                 status: 200,
@@ -85,6 +92,8 @@
             if(result.type === 'success'){
                 await invalidateAll();
             }
+
+            goto('/')
         } catch(error) {
             applyAction({
                 type: 'error',
@@ -107,19 +116,19 @@
     {/if}
     <form method='POST' on:submit|preventDefault='{handleSubmit}'>
         <div class='flex flex-col items-center'>
-            <h1 class='text-center text-3xl text-blue-300 my-5'>PWMan</h1>
-            <div class='border-2 p-3 rounded-lg'>
-                <p class='block text-xl text-blue-100 mb-3 text-center'>Register</p>
+            <h1 class='text-center text-3xl text-blue-300 mt-24 mb-5'>PWMan</h1>
+            <div class='border-2 py-3 px-6 rounded-lg'>
+                <p class='block text-xl text-blue-100 mb-3 text-center'>Create Account</p>
                 <div class='flex flex-col items-center'>
                     <label for='email' class=' place-self-start block text-md text-blue-100 mb-1 ms-1'>Email</label>
-                    <input type='text' id='email' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='Email' required/>    
+                    <input type='text' name='email' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='Email' required/>    
                 </div>
                 <div class='flex flex-col items-center mt-3'>
                     <label for='password' class='place-self-start block text-md text-blue-100 mb-1 ms-1'>Password</label>
                     <input 
                         class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none'
                         type='password' 
-                        id='password'  
+                        name='password'  
                         placeholder='•••••••••' 
                         required
                         on:change={() => {
@@ -152,8 +161,8 @@
                         bind:value={confirmPassword}
                     />
                 </div>
-                <a class='block text-xs text-blue-100 hover:text-blue-500 hover:underline mt-1 me-1' href='/register'>Already Have An Account?</a>
-                <button class='border rounded-lg mt-3 px-3 py-1 w-auto'>Register</button>
+                <a class='block text-xs text-blue-100 hover:text-blue-500 hover:underline mt-1 me-1' href='/login'>Already Have An Account?</a>
+                <button class='border rounded-lg mt-3 px-3 py-1 w-auto float-right bg-blue-100 border-zinc-800 text-zinc-800 hover:border-blue-500 hover:bg-blue-200 hover:text-zinc-600'>Register</button>
             </div>
         </div>
     </form>

@@ -101,11 +101,11 @@
             <div class='justify-self-center col-start-2 row-start-3 border-t-2 border-s-2 border-e-2 pt-3 ps-3 pe-3 rounded-t-lg'>
                 <p class='block text-lg text-blue-100 mb-3 text-center'>Login</p>
                 <label for='email' class='block text-md text-blue-100 mb-1 ms-1'>Email</label>
-                <input type='text' id='email' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='Email' required/>
+                <input type='text' name='email' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='Email' required/>
             </div>
             <div class='justify-self-center col-start-2 row-start-4 border-b-2 border-s-2 border-e-2 pb-3 ps-3 pe-3 rounded-b-lg pt-4'>
                 <label for='password' class='block text-md text-blue-100 mb-1 ms-1'>Password</label>
-                <input type='password' id='password' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='•••••••••' required/>
+                <input type='password' name='password' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='•••••••••' required/>
                 <a class='block text-xs text-end text-blue-100 hover:text-blue-500 hover:underline mt-1 me-1' href='/register'>Create Account</a>
                 <button>Login</button>
             </div>

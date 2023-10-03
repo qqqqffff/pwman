@@ -6,7 +6,7 @@
     onMount(() => {
         auth.subscribe((user) => {
             if(!user)
-                goto('/auth/login');
+                goto('/login');
         });
     });
 </script>

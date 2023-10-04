@@ -80,6 +80,8 @@
             if(result.type === 'success'){
                 await invalidateAll();
             }
+
+            goto('/');
         } catch(error){
             applyAction({
                 type: 'error',
@@ -96,18 +98,32 @@
         </div>
     {/if}
     <form method='POST' on:submit|preventDefault='{handleSubmit}'>
-        <div class='grid grid-cols-3 grid-rows-4'>
-            <h1 class='justify-self-center col-start-2 row-start-2 text-2xl'>PWMan</h1>
-            <div class='justify-self-center col-start-2 row-start-3 border-t-2 border-s-2 border-e-2 pt-3 ps-3 pe-3 rounded-t-lg'>
-                <p class='block text-lg text-blue-100 mb-3 text-center'>Login</p>
-                <label for='email' class='block text-md text-blue-100 mb-1 ms-1'>Email</label>
-                <input type='text' name='email' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='Email' required/>
-            </div>
-            <div class='justify-self-center col-start-2 row-start-4 border-b-2 border-s-2 border-e-2 pb-3 ps-3 pe-3 rounded-b-lg pt-4'>
-                <label for='password' class='block text-md text-blue-100 mb-1 ms-1'>Password</label>
-                <input type='password' name='password' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='•••••••••' required/>
+        <div class='flex flex-col items-center'>
+            <h1 class='text-center text-3xl text-blue-300 mt-24 mb-5'>PWMan</h1>
+            <div class='border-2 py-3 px-6 rounded-lg'>
+                <p class='block text-xl text-blue-100 mb-3 text-center'>Login</p>
+                <div class='flex flex-col items-center'>
+                    <label for='email' class='place-self-start block text-md text-blue-100 mb-1 ms-1'>Email</label>
+                    <input 
+                        type='text' 
+                        name='email' 
+                        class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' 
+                        placeholder='Email' 
+                        required
+                    />
+                </div>
+                <div class='flex flex-col items-center mt-3'>
+                    <label for='password' class='place-self-start block text-md text-blue-100 mb-1 ms-1'>Password</label>
+                    <input 
+                        type='password' 
+                        name='password' 
+                        class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' 
+                        placeholder='•••••••••' 
+                        required
+                    />
+                </div>
                 <a class='block text-xs text-end text-blue-100 hover:text-blue-500 hover:underline mt-1 me-1' href='/register'>Create Account</a>
-                <button>Login</button>
+                <button class='border rounded-lg mt-3 px-3 py-1 w-auto float-right bg-blue-100 border-zinc-800 text-zinc-800 hover:border-blue-500 hover:bg-blue-200 hover:text-zinc-600'>Login</button>
             </div>
         </div>
     </form>

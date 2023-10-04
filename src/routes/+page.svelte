@@ -1,18 +1,9 @@
 <script lang="ts">
-    import { goto } from "$app/navigation";
-    import { onMount } from "svelte";
-    import { auth } from "../stores/auth";
-
-    onMount(() => {
-        auth.subscribe((user) => {
-            if(!user)
-                goto('/login');
-        });
-    });
+    
 </script>
 <nav class='bg-zinc-700 p-4'>
     <div class='flex flex-nowrap justify-between'>
-        <a href='/' class='text-xl text-blue-100 hover:underline self-center ml-5'>PWMan</a>
+        <a href='/' class='text-xl text-blue-300 self-center ml-5'>PWMan</a>
         <div class='relative'>
             <div class='absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none'>
                 <svg class='w-4 h-4 text-zinc-400' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill="none" viewBox='0 0 20 20'>
@@ -22,9 +13,8 @@
             <input type='search' id='search' class='block w-96 pl-10 p-4 text-sm text-blue-100 border border-zinc-800 rounded-lg bg-zinc-600 focus:ring-blue-500 focus:border-blue-500' placeholder="Search Passwords"/>
         </div>
         <div class='self-center mr-5'>
-            <button type='button' class='bg-blue-100 px-3 py-1 border border-zinc-800 rounded-md text-zinc-700 hover:bg-blue-300 mr-4'>Add PW</button>
+            <button type='button' class='border rounded-lg me-4 px-3 py-1 w-auto bg-blue-100 border-zinc-800 text-zinc-800 hover:border-blue-500 hover:bg-blue-200 hover:text-zinc-600'>Add PW</button>
             <a href='/profile' class='text-xl text-blue-100 hover:underline'>Profile</a>
         </div>
-        
     </div>
 </nav>

@@ -120,7 +120,7 @@
             <div class='border-2 py-3 px-6 rounded-lg'>
                 <p class='block text-xl text-blue-100 mb-3 text-center'>Create Account</p>
                 <div class='flex flex-col items-center'>
-                    <label for='email' class=' place-self-start block text-md text-blue-100 mb-1 ms-1'>Email</label>
+                    <label for='email' class='place-self-start block text-md text-blue-100 mb-1 ms-1'>Email</label>
                     <input type='text' name='email' class='block border-zinc-800 border rounded-lg text-sm pl-2 py-1 w-52 focus:ring-blue-500 focus:border-blue-500 outline-none' placeholder='Email' required/>    
                 </div>
                 <div class='flex flex-col items-center mt-3'>

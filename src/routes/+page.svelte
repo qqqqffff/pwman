@@ -1,6 +1,13 @@
 <script lang="ts">
-    
+    import Modal from "$lib/components/Modal.svelte";
+
+    let showModal = false;
+
+    const handleToggleModal = () => {
+        showModal = !showModal;
+    }
 </script>
+
 <nav class='bg-zinc-700 p-4'>
     <div class='flex flex-nowrap justify-between'>
         <a href='/' class='text-xl text-blue-300 self-center ml-5'>PWMan</a>
@@ -13,8 +20,22 @@
             <input type='search' id='search' class='block w-96 pl-10 p-4 text-sm text-blue-100 border border-zinc-800 rounded-lg bg-zinc-600 focus:ring-blue-500 focus:border-blue-500' placeholder="Search Passwords"/>
         </div>
         <div class='self-center mr-5'>
-            <button type='button' class='border rounded-lg me-4 px-3 py-1 w-auto bg-blue-100 border-zinc-800 text-zinc-800 hover:border-blue-500 hover:bg-blue-200 hover:text-zinc-600'>Add PW</button>
+            <button 
+                type='button'
+                on:click={() => handleToggleModal()}
+                class='border rounded-lg me-4 px-3 py-1 w-auto bg-blue-100 border-zinc-800 text-zinc-800 hover:border-blue-500 hover:bg-blue-200 hover:text-zinc-600'
+            >
+                Add PW
+            </button>
             <a href='/profile' class='text-xl text-blue-100 hover:underline'>Profile</a>
         </div>
     </div>
 </nav>
+
+<Modal
+    title='Test'
+    open={showModal}
+    on:close={() => handleToggleModal()}
+>
+    <svelte:fragment slot='body'>Test content</svelte:fragment>
+</Modal>

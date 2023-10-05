@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
+import { getFirestore, doc, collection } from 'firebase/firestore/lite'
 import { 
     PUBLIC_FIREBASE_API_KEY, 
     PUBLIC_FIREBASE_APP_ID, 
@@ -26,5 +27,8 @@ export const initFirebase = memoize(() => {
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
-    return { app, analytics, auth };
+    const db = getFirestore(app);
+    const userDoc = (userId: string) => doc(db, 'users', userId);
+
+    return { app, analytics, auth, db, userDoc };
 })

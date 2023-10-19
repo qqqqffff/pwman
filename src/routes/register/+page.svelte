@@ -20,7 +20,6 @@
     });
 
     const register = async(email: string | undefined, password: string | undefined): Promise<ActionResult<{credential: UserCredential}, Record<string, string>>> => {
-        console.log(email, ' ', password);
         if(!email || !password)
             return {
                 type: 'failure',

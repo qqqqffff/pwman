@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+    <ellipse
+       style="fill:#000000;fill-opacity:0;stroke:#3b82f6;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+       id="path5"
+       cx="11.045009"
+       cy="10.149972"
+       transform="matrix(0.99503639,-0.09951171,0.09948953,0.99503861,0,0)"
+       rx="4.4998045"
+       ry="4.5003018" />
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#3b82f6;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+       d="m 11.5,17 c 0,0 1.855333,15.791905 6.459388,0.289326 0,0 2.878163,15.423868 6.459387,-0.152301"/>
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#3b82f6;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+       d="M 7.6171011,8 3.4,23.738436"/>
+</svg>

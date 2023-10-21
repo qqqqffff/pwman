@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class='flex flex-row-reverse'>
-        <div hidden={dropdownHidden} id='dropdown' class="absolute -translate-y-3 -translate-x-2 text-left list-none bg-secondary rounded-lg shadow w-24">
+        <div hidden={dropdownHidden} class="absolute -translate-y-3 -translate-x-2 text-left list-none bg-secondary rounded-lg shadow w-24">
             <ul class="py-2">
                 <li>
                     <button class="block px-4 py-2 text-xs text-primary hover:text-primary-dark">Edit</button>

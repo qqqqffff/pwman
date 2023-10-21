@@ -38,9 +38,7 @@
 </nav>
 
 <Modal
-    title='Test'
+    title='Add Password'
     open={showModal}
     on:close={() => handleToggleModal()}
->
-    <svelte:fragment slot='body'>Test content</svelte:fragment>
-</Modal>
+/>

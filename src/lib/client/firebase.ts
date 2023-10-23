@@ -11,7 +11,6 @@ import {
     PUBLIC_FIREBASE_PROJECT_ID, 
     PUBLIC_FIREBASE_SENDER_ID 
 } from '$env/static/public'
-import { memoize } from 'lodash';
 
 const firebaseConfig = {
     apiKey: PUBLIC_FIREBASE_API_KEY,
@@ -23,12 +22,18 @@ const firebaseConfig = {
     measurementId: PUBLIC_FIREBASE_MEASUREMENT_ID,
 }
 
-export const initFirebase = memoize(() => {
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-    const userDoc = (userId: string) => doc(db, 'users', userId);
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-    return { app, analytics, auth, db, userDoc };
-})
+const passwordCollection = collection(db, 'passwords');
+
+export {
+    app, 
+    analytics, 
+    auth, 
+    db,
+    passwordCollection
+}
+

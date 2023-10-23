@@ -1,10 +1,14 @@
 <script lang="ts">
-    import Modal from "$lib/components/Modal.svelte";
+    import Modal from "./Modal.svelte";
+    import { addDoc, serverTimestamp } from "firebase/firestore/lite";
+    import { auth } from "../../stores/auth";
 
     let showModal = false;
     const handleToggleModal = () => {
         showModal = !showModal;
     }
+
+
     
 </script>
 
@@ -21,7 +25,7 @@
                 autocomplete='off'
                 type='search' 
                 id='search' 
-                class='block lg:w-[32rem] md:w-96 pl-10 py-3 text-xl text-secondary-light border border-black rounded-lg bg-secondary focus:ring-primary-dark focus:border-primary-dark' 
+                class='block lg:w-[32rem] md:w-96 pl-10 py-3 text-xl text-primary border border-black rounded-lg bg-secondary focus:ring-primary-dark focus:border-primary-dark' 
                 placeholder="Search Vault"/>
         </div>
         <div class='self-center mr-5'>
@@ -39,6 +43,10 @@
 
 <Modal
     title='Add Password'
+    website=''
+    username=''
+    password=''
     open={showModal}
     on:close={() => handleToggleModal()}
+    on:sendPassword={() => {}}
 />

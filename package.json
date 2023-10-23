@@ -24,7 +24,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"firebase": "^10.4.0",
-		"lodash": "^4.17.21"
+		"firebase": "^10.4.0"
 	}
 }
